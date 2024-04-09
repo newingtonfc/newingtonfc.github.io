@@ -1,0 +1,36 @@
+<div id="container">
+<h2>Upcoming Newington Fixtures</h2>
+    <ul id="upcomingFixtures"></ul>
+
+       <script>
+
+        fetch(apiEndpoint)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const now = new Date().getTime();
+
+                const upcomingMatches = data.results.filter(match => {
+                    // Adjust these conditions based on your API structure
+                    // Here we check if match description does not include "Newington U21" and date is in the future
+                    return !match.matchDescription.includes("Newington U21") && match.matchDate > now;
+                }).sort((a, b) => a.matchDate - b.matchDate);
+
+                const fixturesList = document.getElementById("upcomingFixtures");
+                upcomingMatches.forEach(match => {
+                    const listItem = document.createElement("li");
+                    // Format the date from timestamp; make sure your API's matchDate is in milliseconds
+                    listItem.textContent = `${new Date(match.matchDate).toLocaleDateString()} - ${match.matchDescription}`;
+                    fixturesList.appendChild(listItem);
+                });
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+    </script>
+</div>    
+    

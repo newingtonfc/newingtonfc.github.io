@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Newington FC · Belfast · NIFL Championship</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+	<link rel="icon" href="icon.svg" type="image/svg+xml">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png"><!-- 180×180 -->
+	<link rel="manifest" href="manifest.webmanifest">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+  </head>
+  <body>
+  <section class="header" style="background: #0A4D2C; padding:20px;">
+  	<div class="container-fluid">
+  		<div>
+  		<img src="images/newingtonfc-logo.svg" alt="Newington Football Club" width="90" height="90">&nbsp;
+    <a href="#">Newington FC</a>
+  		<div>
+  	</div>
+  </section>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" style="">
+  <div class="container-fluid"> 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">News</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Teams
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Mens</a></li>
+            <li><a class="dropdown-item" href="#">U20s</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Youth Teams</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Info
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">About The &rsquo;Ton</a></li>
+            <li><a class="dropdown-item" href="#">History</a></li>
+            <li><a class="dropdown-item" href="#">Honours</a></li>
+            <li><a class="dropdown-item" href="#">Sponsorship Opportunities</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!--<form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>-->
+      <ul class="">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login / Register</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid" style="background:red;">
+	<div class="hero container" style="background:pink; min-height: 500px;">
+	<h1>Newington FC</h1>
+	</div>
+</div>  
+<div class="container py-5">
+	<div class="row">
+		<div class="col-4" style="background: yellow;">
+			<p class="h3">Last game</p>
+			<div id="lastPlayedFixture">Loading...</div>
+			<p><a href="">Match Report</a></p>
+			
+			<script>
+				const apiEndpoint = 'https://comet.irishfa.com/data-backend/api/public/areports/run/0/1000/?API_KEY=3afa24a366f775a2bec5b7f601ce249a4439835887376d7f7ef17113f5f1463375d355dbefa9edb7b4cc514aa8ce19fe936ffb16bac07b8588d08e6a8418b5ba';
+		
+				fetch(apiEndpoint)
+					.then(response => {
+						if (!response.ok) {
+							throw new Error('Network response was not ok');
+						}
+						return response.json();
+					})
+					.then(data => {
+						const playedMatches = data.results.filter(match => match.matchStatus === 'PLAYED' && !match.matchDescription.includes("Newington U21")).sort((a, b) => b.matchDate - a.matchDate);
+		
+						if (playedMatches.length > 0) {
+							const lastMatch = playedMatches[0];
+							const matchDate = new Date(lastMatch.matchDate).toLocaleString();
+							
+							// Splitting the match description to extract teams and result
+							let matchDescriptionParts = lastMatch.matchDescription.split(' ');
+							let scoreIndex = matchDescriptionParts.findIndex(part => part.includes(':')); // Finds the index of the score
+							let homeTeam = matchDescriptionParts.slice(0, scoreIndex).join(' ');
+							let awayTeam = matchDescriptionParts.slice(scoreIndex + 1, -1).join(' '); // Assuming the score is always at the end
+							let result = matchDescriptionParts[scoreIndex];
+		
+							// Building the display string
+							const displayString = `${lastMatch.competitionType}\n\n${matchDate}\n\n${homeTeam} ${result} ${awayTeam}\n\n${lastMatch.facility}`;
+		
+							document.getElementById("lastPlayedFixture").innerText = displayString;
+						} else {
+							document.getElementById("lastPlayedFixture").innerText = "No matches have been played yet.";
+						}
+					})
+					.catch(error => {
+						console.error('There has been a problem with your fetch operation:', error);
+					});
+			</script>
+			
+		</div>
+		<div class="col-4" style="background: lime;">
+			<h3>Next game</h3>
+    		<div id="matchData"></div>
+    		
+    		 <script>
+        const apiURL = 'https://comet.irishfa.com/data-backend/api/public/areports/run/0/1000/?API_KEY=ea328a893345203bb9e2454791272f347f564169840320adbbacf5c9d54637c8fef52ed827102e302c332c28dbb73e3e6c689d60456311d3ec93fd21539e1d49';
+
+        fetch(apiURL)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const matches = data.results;
+                const container = document.getElementById('matchData');
+
+                matches.forEach(match => {
+                    const matchElement = document.createElement('div');
+                    matchElement.classList.add('match');
+
+                    const descriptionElement = document.createElement('div');
+                    descriptionElement.classList.add('description');
+                    descriptionElement.textContent = `Match Description: ${match.matchDescription}`;
+
+                    const statusElement = document.createElement('div');
+                    statusElement.classList.add('status');
+                    statusElement.textContent = `Status: ${match.matchStatus}`;
+
+                    matchElement.appendChild(descriptionElement);
+                    matchElement.appendChild(statusElement);
+
+                    container.appendChild(matchElement);
+                });
+            })
+            .catch(error => {
+                console.error('There was a problem with your fetch operation:', error);
+            });
+    </script>
+    		
+		</div>
+		<div class="col-4" style="background: pink;">
+			
+			<h3>Table</h3>
+			<p id="newingtonPosition">Loading...</p>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+fetch('https://comet.irishfa.com/data-backend/api/public/areports/run/0/25/?API_KEY=fbe78b7a7cdc0c5ec2b355e307713e7e84c43c5773ac697b2ce44683d805a2e15017b598e7e28c6011fc806a2b8cec17e9a5e21f688e0d3aa85555f7fc249a4d')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        const newington = data.results.find(team => team.club === "Newington");
+        if (newington) {
+            document.getElementById('newingtonPosition').textContent = `Current Position: ${newington.position}`;
+        } else {
+            document.getElementById('newingtonPosition').textContent = "Newington data not found.";
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+        document.getElementById('newingtonPosition').textContent = "Failed to load position data.";
+    });
+});
+
+</script>
+
+		</div>
+	</div>
+
+<div id="row" style="background:pink;">
+
+<table id="leagueTable">
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Club</th>
+                <th>Matches</th>
+                <th>Wins</th>
+                <th>Draws</th>
+                <th>Losses</th>
+                <th>Goals For</th>
+                <th>Goals Against</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('https://comet.irishfa.com/data-backend/api/public/areports/run/0/25/?API_KEY=fbe78b7a7cdc0c5ec2b355e307713e7e84c43c5773ac697b2ce44683d805a2e15017b598e7e28c6011fc806a2b8cec17e9a5e21f688e0d3aa85555f7fc249a4d')
+    .then(response => response.json())
+    .then(data => {
+        const sortedResults = data.results.sort((a, b) => a.position - b.position);
+        const tableBody = document.getElementById('leagueTable').getElementsByTagName('tbody')[0];
+        
+        sortedResults.forEach(team => {
+            let row = tableBody.insertRow();
+            
+            let cell1 = row.insertCell(0);
+            cell1.innerHTML = team.position;
+            
+            let cell2 = row.insertCell(1);
+            cell2.innerHTML = team.club;
+            
+            let cell3 = row.insertCell(2);
+            cell3.innerHTML = team.matches;
+            
+            let cell4 = row.insertCell(3);
+            cell4.innerHTML = team.wins;
+            
+            let cell5 = row.insertCell(4);
+            cell5.innerHTML = team.draws;
+            
+            let cell6 = row.insertCell(5);
+            cell6.innerHTML = team.losses;
+            
+            let cell7 = row.insertCell(6);
+            cell7.innerHTML = team.goalsFor;
+            
+            let cell8 = row.insertCell(7);
+            cell8.innerHTML = team.goalsAgainst;
+            
+            let cell9 = row.insertCell(8);
+            cell9.innerHTML = team.points;
+        });
+    })
+    .catch(error => console.error('Error fetching data:', error));
+});
+</script>
+</div>
+</div>
+
+<div id="container">
+<h2>Upcoming Newington Fixtures</h2>
+    <ul id="upcomingFixtures"></ul>
+
+       <script>
+        // Example API endpoint
+        const apiEndpoint = 'https://comet.irishfa.com/data-backend/api/public/areports/run/0/1000/?API_KEY=3afa24a366f775a2bec5b7f601ce249a4439835887376d7f7ef17113f5f1463375d355dbefa9edb7b4cc514aa8ce19fe936ffb16bac07b8588d08e6a8418b5ba';
+
+        fetch(apiEndpoint)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const now = new Date().getTime();
+
+                const upcomingMatches = data.results.filter(match => {
+                    // Adjust these conditions based on your API structure
+                    // Here we check if match description does not include "Newington U21" and date is in the future
+                    return !match.matchDescription.includes("Newington U21") && match.matchDate > now;
+                }).sort((a, b) => a.matchDate - b.matchDate);
+
+                const fixturesList = document.getElementById("upcomingFixtures");
+                upcomingMatches.forEach(match => {
+                    const listItem = document.createElement("li");
+                    // Format the date from timestamp; make sure your API's matchDate is in milliseconds
+                    listItem.textContent = `${new Date(match.matchDate).toLocaleDateString()} - ${match.matchDescription}`;
+                    fixturesList.appendChild(listItem);
+                });
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+    </script>
+</div>    
+    
+<table id="fixturesTable">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Home Team</th>
+                <th>Away Team</th>
+                <th>Competition</th>
+                <th>Venue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be added here -->
+        </tbody>
+    </table>
+
+    <script>
+        const apiEndpoint = 'https://comet.irishfa.com/data-backend/api/public/areports/run/0/1000/?API_KEY=3afa24a366f775a2bec5b7f601ce249a4439835887376d7f7ef17113f5f1463375d355dbefa9edb7b4cc514aa8ce19fe936ffb16bac07b8588d08e6a8418b5ba';
+
+        fetch(apiEndpoint)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const now = new Date().getTime();
+
+                const upcomingMatches = data.results.filter(match => {
+                    return !match.matchDescription.includes("Newington U21") && match.matchDate > now;
+                }).sort((a, b) => a.matchDate - b.matchDate);
+
+                const tableBody = document.getElementById("fixturesTable").getElementsByTagName("tbody")[0];
+                
+                upcomingMatches.forEach(match => {
+                    const row = document.createElement("tr");
+                    
+                    // Assuming matchDescription is in "HomeTeam - AwayTeam" format
+                    let [homeTeam, awayTeam] = match.matchDescription.split(" - ");
+                    // Trim scores if present
+                    homeTeam = homeTeam.split(/\s+\d*:\d*/)[0];
+                    awayTeam = awayTeam.split(/\s+\d*:\d*/)[0];
+
+                    // Assuming the API structure for competition and facility
+                    const competition = match.competitionType; // Adjust based on your API
+                    const venue = match.facility; // Adjust based on your API
+                    
+                    row.innerHTML = `
+                        <td>${new Date(match.matchDate).toLocaleDateString()}</td>
+                        <td>${homeTeam}</td>
+                        <td>${awayTeam}</td>
+                        <td>${competition}</td>
+                        <td>${venue}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+    </script>    
+    
+
+<div class="container-fluid" style="background: lime;">
+<footer class="container py-5">
+    <div class="row">
+      <div class="col-6 col-md-2 mb-3">
+        <img src="images/newingtonfc-logo.svg" alt="Newington FC" width="120" height="120">
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+        </ul>
+      </div>
+
+
+      <div class="col-md-5 offset-md-1 mb-3">
+        <form>
+          <h5>Subscribe to email updates</h5>
+          <p>Receive regular updates and our monthly newsletter in your inbox.</p>
+          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+            <label for="newsletter1" class="visually-hidden">Email address</label>
+            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+            <button class="btn btn-primary" type="button">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© <script>document.write( new Date().getFullYear() );</script> Newington Football Club. All rights reserved.</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+
+      </ul>
+    </div>
+  </footer>
+</div>	
+	
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  </body>
+</html>

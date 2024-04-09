@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Newington FC · Belfast · NIFL Championship</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+}
+
+.card-link {
+  text-decoration: none; /* Removes underline from links */
+  color: inherit; /* Keeps the text color the same as if it wasn't a link */
+  display: block; /* Ensures the anchor takes up the full block */
+}
+
+.base-card h6, .base-card h4  {
+  font-weight: 600;
+}
+
+.base-card:hover h6, .base-card:hover h4  {
+  color: #0a58ca;
+  text-decoration: underline;
+}
+
+.club-logo {
+max-height: 32px;
+}
+
+.newington-position {
+  font-weight: bold;
+}
+
+
+
+    </style>
+  </head>
+  
+	<body>
+	
+		<section class="header" style="background: #0e6743; padding:20px;">
+			<div class="container-fluid">
+				<div class="row">
+  				<div class="col-6">
+  					<h1><a href="#"><img src="images/newingtonfc-logo.svg" alt="Newington Football Club" width="90" height="90"></a></h1>
+				</div>
+				<div class="col-6 align-middle">
+				<a href="#"><img src="https://www.nifootballleague.com/media/12646/playr-fit_champ.png" class="align-middle text-end" alt="Playr-fit Championship" height="50" style="float:right;"></a>
+				</div>
+				</div>
+			</div>
+		</section>
+		
+		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#1e3c30;">
+			<div class="container-fluid"> 
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">News</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Teams
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Men</a></li>
+            <li><a class="dropdown-item" href="#">U21s</a></li>
+            <li><a class="dropdown-item" href="#">Youth teams</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Club
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">About the &rsquo;Ton</a></li>
+            <li><a class="dropdown-item" href="#">History</a></li>
+            <li><a class="dropdown-item" href="#">Honours</a></li>
+            <li><a class="dropdown-item" href="#">Partners</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Get involved
+          </a>
+          <ul class="dropdown-menu">
+          	<h6 class="dropdown-header">Fundraising</h6>
+            <li><a class="dropdown-item" href="#">The &lsquo;Ton Club</a></li>
+            <li><a class="dropdown-item" href="#">2024 Euros Goals <span class="badge bg-warning text-dark">New</span></a></li>
+            <li><a class="dropdown-item" href="#">Last Man Standing</a></li>
+            <div class="dropdown-divider"></div>
+ 			 <h6 class="dropdown-header">Sponsorship</h6>
+            <li><a class="dropdown-item" href="#">Player sponsorship</a></li>
+            <li><a class="dropdown-item" href="#">Match day sponsorship</a></li>
+            <li><a class="dropdown-item" href="#">Digital sponsorship</a></li>
+            <div class="dropdown-divider"></div>
+            <h6 class="dropdown-header">Community</h6>
+            <li><a class="dropdown-item" href="#">Volunteering</a></li>
+
+          </ul>
+        </li>
+                <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><s>Shop</s></a>
+        </li>
+
+       
+      </ul>
+		<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+			<li class="nav-item">
+				<a class="nav-link" href="#">Login / Register</a>
+			</li>
+		</ul>
+    </div>
+  </div>
+</nav>
+
+<!--<  <div class="container">
+    <h1 class="display-4">Fluid jumbotron</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+
+
+div class="container-fluid" style="background:red;">
+	<div class="hero container" style="background:pink; min-height: 500px;">
+	<h1>Newington FC</h1>
+	</div>
+</div>-->
+
+<div class="container py-5">
+	<div class="row">
+		<div class="col-4" style="background: ;">
+			<p class="h3">Last Game</p>
+			<div id="lastGame">Loading...</div>
+			<p><a href="">Match report</a> &middot; <a href="">View all results</a></p>
+
+			
+		</div>
+		<div class="col-4" style="background: ;">
+			<h3>Next Game</h3>
+    		<div id="nextUpcomingFixture">Loading...</div>
+    		<p><a href="">View all fixtures</a></p>
+
+    		
+		</div>
+		<div class="col-4" style="background: ;">
+			
+			<h3>League Table</h3>
+			<table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col"></th>
+                <th scope="col">Pl</th>
+                <th scope="col">GD</th>
+                <th scope="col">Pts</th>
+            </tr>
+        </thead>
+        <tbody id="league-standings">
+            <!-- Standings will be inserted here -->
+        </tbody>
+    </table>
+			<a href="">View full table</a>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid" style="background:#e0e0e0;">
+<div class="container">
+  <div class="row">
+  		<h3 class="mt-4 mb-4">Latest news from the &lsquo;Ton</h3>
+    <!-- Left column for the large news item -->
+    <div class="col-md-5">
+    <a href="" class="card-link">
+     <div class="card base-card">
+  <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h4 class="card-title">&lsquo;Ton strikes historic deal with Premier League giants for pre-season friendly</h4>
+    <p class="card-text">Sunday’s win over Brighton, combined with Manchester City and Arsenal’s goalless draw, elevated the Reds back to the top of the table with nine matches to go.</p>
+    <p class="card-text"><small class="text-muted">4 hours ago</small></p>
+  </div>
+</div>
+</a>
+    </div>
+
+    <!-- Right column for smaller cards -->
+    <div class="col-md-7">
+      <div class="row">
+        <!-- First row of smaller cards -->
+        <div class="col-md-4">
+        <a href="" class="card-link">
+         <div class="card base-card mb-4">
+  <img src="https://images.unsplash.com/photo-1459865264687-595d652de67e?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Alt here">
+  <div class="card-body">
+    <h6 class="card-title">Newington FC U18s clinch title in dramatic finale</h6>
+    <p class="card-text"><small class="text-muted">3 days ago</small></p>
+  </div>
+</div>
+</a>
+        </div>
+        <div class="col-md-4">
+        <a href="" class="card-link">
+         <div class="card base-card mb-4">
+  <img src="https://images.unsplash.com/photo-1587329310686-91414b8e3cb7?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Alt here">
+  <div class="card-body">
+    <h6 class="card-title">Plans announced for state-of-the-art training facility in heart of Belfast</h6>
+    <p class="card-text"><small class="text-muted">7 days ago</small></p>
+  </div>
+</div>          
+</a>
+        </div>
+        <div class="col-md-4">
+        <a href="" class="card-link">
+          <div class="card base-card mb-4">
+  <img src="https://plus.unsplash.com/premium_photo-1685231505282-4ba3e09eec47?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Alt here">
+  <div class="card-body">
+    <h6 class="card-title">Striking sensation scores hat-trick to secure top spot in Championship</h6>
+    <p class="card-text"><small class="text-muted">Mar 12</small></p>
+  </div>
+  
+          </div>
+          </a>
+        </div>
+
+        <!-- Second row of smaller cards -->
+        <div class="col-md-4">
+         <a href="" class="card-link">
+         <div class="card base-card mb-4">
+  <img src="https://images.unsplash.com/photo-1519823038424-f8dbabca95f1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Alt here">
+  <div class="card-body">
+    <h6 class="card-title">Newington FC unveils stylish retro kit for upcoming season</h6>
+    <p class="card-text"><small class="text-muted">Mar 3</small></p>
+  </div>
+</div>
+</a>
+        </div>
+        <div class="col-md-4">
+        <a href="" class="card-link">
+         <div class="card base-card mb-4">
+  <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Alt here">
+  <div class="card-body">
+    <h6 class="card-title">Newington FC's rising star called up for Republic U15 duty</h6>
+    <p class="card-text"><small class="text-muted">Jan 19</small></p>
+  </div>
+</div>          
+    </a>
+        </div>
+        <div class="col-md-4">
+         <a href="" class="card-link">
+         <div class="card base-card mb-4">
+  <img src="https://images.unsplash.com/photo-1589487391730-58f20eb2c308?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8" class="card-img-top" alt="Alt here">
+  <div class="card-body">
+    <h6 class="card-title">'Football for All' community initiative program launches</h6>
+    <p class="card-text"><small class="text-muted">31 Dec 2023</small></p>
+  </div>
+  
+          </div>
+          </a>
+        </div>
+  </div>
+</div>
+</div>
+<div class="text-center">
+<button type="button" class="btn btn-primary btn-lg mt-3 mb-5">View more news</button>
+</div>
+</div>
+</div>
+
+<!---------- PLAYER PROFILES---------->
+
+<div class="container-fluid" style="background: pink;">
+<div class="container">
+
+<div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      1
+    </div>
+    <div class="carousel-item">
+      2
+    </div>
+    <div class="carousel-item">
+      3
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+</div>
+</div>
+
+
+<!---------- HISTORY---------->
+<div class="container-fluid">
+	<div class="row">
+	<div class="col-6" style="min-height: 300px;">
+				Review by
+	</div>
+	<div class="col-6" style="background: url(images/home-page-history.png);">
+	hi
+	</div>
+	</div>
+</div>
+
+<!---------- SOCIAL MEDIA / NEWSLETTER ---------->
+<div class="container-fluid" style="background:;">
+<div class="container">
+<div class="row">
+<div class="col-6">
+SOCIAL MEDIA LINKS
+</div>
+<div class="col-6">
+<form>
+          <h5>Subscribe to email updates</h5>
+          <p>Receive regular updates and our monthly newsletter in your inbox.</p>
+          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+            <label for="newsletter1" class="visually-hidden">Email address</label>
+            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+            <button class="btn btn-primary" type="button">Subscribe</button>
+          </div>
+        </form>
+</div>
+</div>
+</div>
+</div>
+    
+<!---------- FOOTER---------->
+<div class="container-fluid text-light" style="background: #1e3c30; color: #e0e0e0; a{color:white;!important}">
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
+    
+    
+    <p class="col-md-4 mb-0 text-body-secondary">© <script>document.write( new Date().getFullYear() );</script> Newington FC. All rights reserved.</p>
+
+    <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+      <img src="images/skorch-logo.svg" alt="Skorch" width="85px">
+    </a>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+    </ul>
+    
+  </footer>
+</div>
+</div>
+
+<div class="container-fluid" style="background: #1e3c30; color: #e0e0e0;">
+<footer class="container py-5">
+    <div class="row">
+      <div class="col-6 col-md-2 mb-3">
+        <img src="images/newingtonfc-logo.svg" alt="Newington FC" width="120" height="120">
+        <p><strong>Newington FC</strong> <br/>℅ Inver Park Stadium <br/>5 Inver Road <br/>Larne <br/>Co. Antrim <br/>BT40 3BW <br/><a href="">Map</a></p><p>Website by <a href="">Skorch</a></p>
+      </div>
+
+      <div class="col-6 col-md-4 mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-5 offset-md-1 mb-3">
+        
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© <script>document.write( new Date().getFullYear() );</script> Newington Football Club. All rights reserved.</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+
+      </ul>
+    </div>
+  </footer>
+</div>	
+
+<!--Matches-->
+
+<script>
+  // Function to shorten team names
+  function shortenTeamName(teamName) {
+    const nameMap = {
+      "Ballinamallard United": "Ballinamallard",
+      "Ballyclare Comrades": "Ballyclare"
+    };
+    return nameMap[teamName] || teamName; // Return the shortened name if it exists, otherwise the original name
+  }
+
+  const apiEndpoint = 'https://comet.irishfa.com/data-backend/api/public/areports/run/0/1000/?API_KEY=3afa24a366f775a2bec5b7f601ce249a4439835887376d7f7ef17113f5f1463375d355dbefa9edb7b4cc514aa8ce19fe936ffb16bac07b8588d08e6a8418b5ba';
+
+  fetch(apiEndpoint)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      const playedMatches = data.results.filter(match => match.matchStatus === 'PLAYED' && !match.matchDescription.includes("Newington U21")).sort((a, b) => b.matchDate - a.matchDate);
+
+      if (playedMatches.length > 0) {
+        const lastMatch = playedMatches[0];
+        const date = new Date(lastMatch.matchDate);
+        // Manually construct the date string to avoid the comma
+        const matchDate = `${date.toLocaleDateString('en-GB', { weekday: 'long' })} ${date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }).replace(/,\s?/g, "")}`;
+
+        const scoreMatch = lastMatch.matchDescription.match(/\b(\d+:\d+)$/);
+        const score = scoreMatch ? scoreMatch[0] : "?:?";
+        const scoreParts = score.split(':');
+        const formattedScore = `<span class="score">${scoreParts[0]}-${scoreParts[1]}</span>`;
+
+        const teams = lastMatch.matchDescription.split(' - ');
+        const homeTeam = shortenTeamName(teams[0]);
+        const awayTeam = shortenTeamName(teams[1].split(' ')[0]);
+
+        const homeTeamCode = lastMatch.homeTeam;
+        const awayTeamCode = lastMatch.awayTeam;
+
+        const displayString = `${lastMatch.name}<br><br>${matchDate}<br><br>${homeTeam} <img src="images/club-logos/clubid-${homeTeamCode}.png" class="club-logo" alt="${homeTeam} logo"> ${formattedScore} <img src="images/club-logos/clubid-${awayTeamCode}.png" class="club-logo" alt="${awayTeam} logo"> ${awayTeam}<br><br>${lastMatch.facility}`;
+
+        document.getElementById("lastGame").innerHTML = displayString;
+      } else {
+        document.getElementById("lastGame").innerText = "No matches have been played yet.";
+      }
+    })
+    .catch(error => {
+      console.error('There has been a problem with your fetch operation:', error);
+    });
+
+  fetch(apiEndpoint)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      const upcomingMatches = data.results.filter(match => match.matchStatus !== 'PLAYED' && !match.matchDescription.includes("Newington U21")).sort((a, b) => a.matchDate - b.matchDate);
+
+      if (upcomingMatches.length > 0) {
+        const nextMatch = upcomingMatches[0];
+        const matchDateTime = new Date(nextMatch.matchDate);
+        // Manually construct the date string to avoid the comma for the upcoming match
+        const matchDate = `${matchDateTime.toLocaleDateString('en-GB', { weekday: 'long' })} ${matchDateTime.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }).replace(/,\s?/g, "")}`;
+        const matchTime = matchDateTime.toTimeString().slice(0, 5);
+
+        const teams = nextMatch.matchDescription.split(' - ');
+        const homeTeam = shortenTeamName(teams[0]);
+        const awayTeam = shortenTeamName(teams[1].split(' ')[0]);
+
+        const homeTeamCode = nextMatch.homeTeam;
+        const awayTeamCode = nextMatch.awayTeam;
+
+        const displayString = `${nextMatch.name}<br><br>${matchDate}<br><br>${homeTeam} <img src="images/club-logos/clubid-${homeTeamCode}.png" class="club-logo" alt="${homeTeam} logo"> ${matchTime} <img src="images/club-logos/clubid-${awayTeamCode}.png" class="club-logo" alt="${awayTeam} logo"> ${awayTeam}<br><br>${nextMatch.facility}`;
+
+        document.getElementById("nextUpcomingFixture").innerHTML = displayString;
+      } else {
+        document.getElementById("nextUpcomingFixture").innerText = "No upcoming matches found.";
+      }
+    })
+    .catch(error => {
+      console.error('There has been a problem with your fetch operation:', error);
+    });
+</script>
+
+<!--League Table Snippet-->	
+<script>
+function fetchLeagueStandings() {
+  const apiURL = 'https://comet.irishfa.com/data-backend/api/public/areports/run/0/25/?API_KEY=fbe78b7a7cdc0c5ec2b355e307713e7e84c43c5773ac697b2ce44683d805a2e15017b598e7e28c6011fc806a2b8cec17e9a5e21f688e0d3aa85555f7fc249a4d'; // Make sure to replace this with your actual API URL
+  const topOfBottomSection = 7; // Adjust if necessary
+
+  fetch(apiURL)
+    .then(response => response.json())
+    .then(data => {
+      const teams = data.results.sort((a, b) => a.position - b.position);
+      const newingtonIndex = teams.findIndex(team => team.club === 'Newington');
+      let teamsToDisplay;
+
+      if (newingtonIndex === 0) {
+        teamsToDisplay = teams.slice(0, 3);
+      } else if (newingtonIndex === teams.length - 1) {
+        teamsToDisplay = teams.slice(-3);
+      } else if (newingtonIndex + 1 === topOfBottomSection) {
+        teamsToDisplay = teams.slice(newingtonIndex, newingtonIndex + 3);
+      } else {
+        teamsToDisplay = teams.slice(Math.max(newingtonIndex - 1, 0), newingtonIndex + 2);
+      }
+
+      displayTeams(teamsToDisplay, newingtonIndex + 1); // Pass Newington's position to highlight it
+    })
+    .catch(error => {
+      console.error('Error fetching league standings:', error);
+    });
+}
+
+function displayTeams(teams, newingtonPosition) {
+  const displayElement = document.getElementById('league-standings');
+  displayElement.innerHTML = '';
+
+  teams.forEach(team => {
+    const goalDifference = team.goalsFor - team.goalsAgainst;
+    // Check if the current team is Newington and add a specific class
+    const trClass = (team.position === newingtonPosition) ? 'class="newington-position"' : '';
+    const row = `
+      <tr ${trClass}>
+        <th scope="row">${team.position}</th>
+        <td>${team.club}</td>
+        <td>${team.matches}</td>
+        <td>${goalDifference}</td>
+        <td>${team.points}</td>
+      </tr>
+    `;
+    displayElement.innerHTML += row;
+  });
+}
+
+fetchLeagueStandings();
+</script>
+
+<!--League Position-->	
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+fetch('https://comet.irishfa.com/data-backend/api/public/areports/run/0/25/?API_KEY=fbe78b7a7cdc0c5ec2b355e307713e7e84c43c5773ac697b2ce44683d805a2e15017b598e7e28c6011fc806a2b8cec17e9a5e21f688e0d3aa85555f7fc249a4d')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        const newington = data.results.find(team => team.club === "Newington");
+        if (newington) {
+            document.getElementById('newingtonPosition').textContent = `Current Position: ${newington.position}`;
+        } else {
+            document.getElementById('newingtonPosition').textContent = "Newington data not found.";
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+        document.getElementById('newingtonPosition').textContent = "Failed to load position data.";
+    });
+});
+
+</script>
+
+<!--Bootstrap-->	
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+  </body>
+</html>
